@@ -4,15 +4,15 @@ setup: true
 
 orbs:
   continuation: circleci/continuation@0.1.2
-  droidian-buildd: droidian-releng/droidian-buildd-orb@volatile
+  droidian-buildd-orb: droidian-releng/droidian-buildd-orb@0.0.25
 
 jobs:
   setup:
     executor: continuation/default
     resource_class: small
     steps:
-      - droidian-buildd/checkout
-      - droidian-buildd/generate
+      - droidian-buildd-orb/checkout
+      - droidian-buildd-orb/generate
       - continuation/continue:
           configuration_path: generated_config.yml
 
